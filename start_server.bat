@@ -1,0 +1,3 @@
+@echo off
+cd /d "E:\做网页2"
+powershell.exe -Command "$listener = New-Object System.Net.HttpListener; $listener.Prefixes.Add('http://localhost:9000/'); $listener.Start(); Write-Host 'Server running on http://localhost:9000'; while ($listener.IsListening) { $context = $listener.GetContext(); $request = $context.Request; $response = $context.Response; $path = $request.Url.LocalPath; if ($path -eq '/') { $path = '/新建 文本文档新版.html' }; $filePath = Join-Path 'E:\做网页2' $path; if (Test-Path $filePath) { $content = [System.IO.File]::ReadAllBytes($filePath); $response.ContentLength64 = $content.Length; $response.ContentType = 'text/html; charset=utf-8'; $response.OutputStream.Write($content, 0, $content.Length) } else { $response.StatusCode = 404 }; $response.Close() }"
