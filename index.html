@@ -5,13 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>菲律宾的对冲策略与一个国家的自我撕裂</title>
 <style>
-/* ===== CSS RESET & VARIABLES ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --font-display: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --font-body: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-
   --color-bg: #E8F4F8;
   --color-bg-dark: #2D2D2D;
   --color-blue: #5BA4E6;
@@ -26,7 +24,6 @@
   --color-text-secondary: #666666;
   --color-red: #E74C3C;
   --color-success: #27AE60;
-
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -35,36 +32,24 @@
   --space-2xl: 48px;
   --space-3xl: 64px;
   --space-4xl: 96px;
-
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
-
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
   --shadow-glow-blue: 0 0 20px rgba(91, 164, 230, 0.3);
   --shadow-glow-orange: 0 0 20px rgba(245, 166, 35, 0.3);
-
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-
   --duration-fast: 200ms;
   --duration-normal: 400ms;
   --duration-slow: 600ms;
   --duration-slower: 800ms;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
 
 body {
@@ -75,7 +60,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== NAVIGATION ===== */
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -146,7 +130,6 @@ body {
   cursor: pointer;
 }
 
-/* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -232,7 +215,6 @@ body {
   50% { transform: translateX(-50%) translateY(10px); }
 }
 
-/* ===== SECTION COMMON ===== */
 section {
   padding: var(--space-4xl) var(--space-xl);
   max-width: 1200px;
@@ -262,15 +244,10 @@ section {
   border-radius: var(--radius-full);
 }
 
-/* ===== PART 1: INTRO ===== */
 .section-intro {
   background: var(--color-white);
   max-width: 100%;
   padding: var(--space-4xl) var(--space-xl);
-}
-
-.section-intro .section-title {
-  margin-bottom: var(--space-3xl);
 }
 
 .comparison-cards {
@@ -304,14 +281,6 @@ section {
   box-shadow: var(--shadow-lg);
 }
 
-.card-left:hover {
-  border-left-width: 6px;
-}
-
-.card-right:hover {
-  border-left-width: 6px;
-}
-
 .date-badge {
   display: inline-block;
   padding: 4px 16px;
@@ -337,7 +306,6 @@ section {
   color: var(--color-text);
 }
 
-/* Sticker Reveal */
 .reveal-container {
   max-width: 900px;
   margin: 0 auto;
@@ -409,7 +377,6 @@ section {
   font-size: 18px;
 }
 
-/* ===== PART 2: THEORY ===== */
 .section-theory {
   background: linear-gradient(180deg, #F0F7FF 0%, #E8F4F8 100%);
   max-width: 100%;
@@ -530,7 +497,6 @@ section {
   color: var(--color-text-secondary);
 }
 
-/* ===== PART 3: TIMELINE ===== */
 .section-timeline {
   background: var(--color-white);
   max-width: 100%;
@@ -705,7 +671,6 @@ section {
   line-height: 1.8;
 }
 
-/* ===== PART 4: DILEMMA ===== */
 .section-dilemma {
   background: linear-gradient(180deg, #E8F4F8 0%, #F0F7FF 100%);
   max-width: 100%;
@@ -756,7 +721,6 @@ section {
   transform: translateX(0);
 }
 
-/* Island Cards */
 .island-layout {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -869,7 +833,6 @@ section {
   color: var(--color-text);
 }
 
-/* Tear Animation */
 .tear-container {
   max-width: 900px;
   margin: 0 auto;
@@ -945,7 +908,6 @@ section {
   animation: shake 0.3s ease-in-out 3;
 }
 
-/* Regional View */
 .regional-content {
   max-width: 800px;
   margin: 0 auto;
@@ -996,7 +958,6 @@ section {
   font-weight: 600;
 }
 
-/* ===== PART 5: CONCLUSION ===== */
 .section-conclusion {
   background: var(--color-white);
   max-width: 100%;
@@ -1128,7 +1089,6 @@ section {
   margin-top: var(--space-sm);
 }
 
-/* Vote Section */
 .vote-section {
   max-width: 700px;
   margin: 0 auto;
@@ -1223,7 +1183,6 @@ section {
 .stat-bar.b { background: var(--color-orange); }
 .stat-bar.c { background: var(--color-green); }
 
-/* ===== FOOTER ===== */
 .footer {
   background: var(--color-bg-dark);
   padding: var(--space-2xl) var(--space-xl);
@@ -1243,7 +1202,6 @@ section {
   font-size: 12px;
 }
 
-/* ===== ANIMATE ON SCROLL ===== */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -1255,105 +1213,31 @@ section {
   transform: translateY(0);
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-mobile-btn { display: block; }
   .nav-brand { font-size: 18px; }
-
   .hero-title { font-size: 28px; line-height: 1.4; }
   .hero-subtitle { font-size: 14px; }
-  .hero-author { font-size: 12px; }
-
-  .comparison-cards,
-  .concept-cards,
-  .flip-cards,
-  .island-layout {
+  .comparison-cards, .concept-cards, .flip-cards, .island-layout {
     grid-template-columns: 1fr;
     gap: var(--space-md);
   }
-
-  .comparison-card,
-  .concept-card,
-  .flip-card {
-    padding: var(--space-md);
-  }
-
-  .comparison-card h3,
-  .concept-card h3 {
-    font-size: 16px;
-  }
-
   .flip-card { height: 220px; }
-  .flip-card-inner { height: 100%; }
-  .flip-card-back { padding: var(--space-md); }
-
   .timeline-line { left: 15px; }
-  .timeline-item,
-  .timeline-item:nth-child(odd) {
+  .timeline-item, .timeline-item:nth-child(odd) {
     flex-direction: column;
     padding-left: 40px;
   }
   .timeline-node { left: 15px !important; }
   .timeline-card { width: 100%; }
-  .timeline-date { font-size: 12px; }
-  .timeline-event { font-size: 14px; }
-  .timeline-summary { font-size: 13px; }
-
-  .island-card:nth-child(1),
-  .island-card:nth-child(2),
-  .island-card:nth-child(3) {
+  .island-card:nth-child(1), .island-card:nth-child(2), .island-card:nth-child(3) {
     transform: none;
   }
-  .island-card {
-    padding: var(--space-md);
-    margin-bottom: var(--space-md);
-  }
-  .island-name { font-size: 16px; }
-  .island-brief { font-size: 13px; }
-  .island-detail p { font-size: 12px; }
-
-  .regional-tabs {
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-  .regional-tab {
-    width: 100%;
-    padding: var(--space-sm) var(--space-md);
-    font-size: 14px;
-  }
-
-  .regional-sticker {
-    font-size: 13px;
-    padding: var(--space-md) var(--space-lg);
-  }
-
-  .regional-reveal {
-    padding: var(--space-md);
-    font-size: 14px;
-  }
-
-  .regional-summary {
-    font-size: 14px;
-    padding: 0 var(--space-md);
-  }
-
-  .conclusion-content {
-    padding: var(--space-md);
-  }
-  .conclusion-title { font-size: 20px; }
-  .conclusion-text { font-size: 14px; }
-
   section { padding: var(--space-xl) var(--space-sm); }
-  
   .section-title { font-size: 22px; }
-  .section-subtitle { font-size: 14px; }
-  
-  .concept-item { font-size: 13px; }
-  .concept-description { font-size: 12px; }
 }
 
-/* Mobile Menu Overlay */
 .mobile-menu {
   display: none;
   position: fixed;
@@ -1391,7 +1275,6 @@ section {
 </head>
 <body>
 
-<!-- Navigation -->
 <nav class="navbar">
   <div class="nav-logo">战略观察</div>
   <div class="nav-links">
@@ -1404,7 +1287,6 @@ section {
   <button class="nav-mobile-btn" onclick="toggleMobileMenu()">☰</button>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMobileMenu()">×</button>
   <a href="#part1" onclick="toggleMobileMenu()">事件</a>
@@ -1414,7 +1296,6 @@ section {
   <a href="#part5" onclick="toggleMobileMenu()">结论</a>
 </div>
 
-<!-- Hero -->
 <header class="hero">
   <div class="hero-content">
     <h1 class="hero-title" id="heroTitle"></h1>
@@ -1427,7 +1308,6 @@ section {
   </div>
 </header>
 
-<!-- Part 1: 介绍事件区 -->
 <section id="part1" class="section-intro">
   <h2 class="section-title animate-on-scroll">矛盾的外交姿态</h2>
 
@@ -1453,7 +1333,6 @@ section {
   </div>
 </section>
 
-<!-- Part 2: 理论讲解区 -->
 <section id="part2" class="section-theory">
   <h2 class="section-title animate-on-scroll">中美间第三方的战略选择</h2>
 
@@ -1483,7 +1362,6 @@ section {
   </div>
 </section>
 
-<!-- Part 3: 案例剖析区 -->
 <section id="part3" class="section-timeline">
   <h2 class="section-title animate-on-scroll">案例剖析：2026年菲律宾外交轨迹</h2>
 
@@ -1552,7 +1430,6 @@ section {
   </div>
 </section>
 
-<!-- Part 4: 困境分析区 -->
 <section id="part4" class="section-dilemma">
   <h2 class="section-title animate-on-scroll">国内政治的结构性撕裂</h2>
 
@@ -1561,7 +1438,6 @@ section {
     <button class="tab-btn" onclick="switchTab('regional', this)">区域视角</button>
   </div>
 
-  <!-- 国内视角 -->
   <div class="tab-content active" data-tab="domestic">
     <div class="island-layout">
       <div class="island-card animate-on-scroll" onclick="toggleIsland(this)">
@@ -1623,7 +1499,6 @@ section {
     </div>
   </div>
 
-  <!-- 区域视角 -->
   <div class="tab-content" data-tab="regional">
     <div class="regional-content">
       <div class="regional-text animate-on-scroll">
@@ -1646,7 +1521,6 @@ section {
   </div>
 </section>
 
-<!-- Part 5: 结论区 -->
 <section id="part5" class="section-conclusion">
   <h2 class="section-title animate-on-scroll">结论：对冲策略的双面性</h2>
 
@@ -1731,3 +1605,132 @@ section {
           <div class="stat-bar c" data-width="60">750人</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>菲律宾的对冲策略与一个国家的自我撕裂</p>
+  <small>© 2026 战略观察 | 国际关系研究</small>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const titleText = "菲律宾的对冲策略与一个国家的自我撕裂";
+  const heroTitle = document.getElementById('heroTitle');
+  
+  titleText.split('').forEach((char, index) => {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.style.animationDelay = `${index * 80}ms`;
+    span.textContent = char;
+    heroTitle.appendChild(span);
+  });
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  setTimeout(() => {
+    document.getElementById('timelineLine')?.classList.add('animate');
+    setTimeout(() => {
+      document.getElementById('node1')?.classList.add('animate');
+      document.getElementById('card1')?.classList.add('animate');
+    }, 100);
+    setTimeout(() => {
+      document.getElementById('node2')?.classList.add('animate');
+      document.getElementById('card2')?.classList.add('animate');
+    }, 300);
+    setTimeout(() => {
+      document.getElementById('node3')?.classList.add('animate');
+      document.getElementById('card3')?.classList.add('animate');
+    }, 500);
+    setTimeout(() => {
+      document.getElementById('node4')?.classList.add('animate');
+      document.getElementById('card4')?.classList.add('animate');
+    }, 700);
+  }, 500);
+});
+
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+function revealSticker(sticker) {
+  sticker.classList.add('peeled');
+  setTimeout(() => {
+    document.getElementById('revealedContent1').classList.add('show');
+  }, 400);
+}
+
+function toggleConcept(card) {
+  card.classList.toggle('active');
+}
+
+function toggleTimelineCard(card) {
+  card.classList.toggle('expanded');
+}
+
+function switchTab(tabName, button) {
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+  
+  button.classList.add('active');
+  document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+}
+
+function toggleIsland(card) {
+  card.classList.toggle('expanded');
+}
+
+function triggerTear() {
+  document.querySelectorAll('.island-card').forEach(card => {
+    card.classList.add('shaking');
+  });
+  
+  setTimeout(() => {
+    document.getElementById('crackLine').classList.add('show');
+    setTimeout(() => {
+      document.getElementById('tearSummary').classList.add('show');
+    }, 400);
+  }, 500);
+}
+
+function revealRegional(sticker) {
+  sticker.classList.add('peeled');
+  setTimeout(() => {
+    document.getElementById('regionalReveal').classList.add('show');
+  }, 400);
+}
+
+function vote(option) {
+  document.querySelectorAll('.vote-option').forEach(opt => opt.disabled = true);
+  document.getElementById('voteStats').classList.add('show');
+  
+  setTimeout(() => {
+    document.querySelectorAll('.stat-bar').forEach(bar => {
+      const width = bar.getAttribute('data-width');
+      bar.style.width = `${width}%`;
+    });
+  }, 100);
+}
+</script>
+</body>
+</html>
