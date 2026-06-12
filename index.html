@@ -1,48 +1,1733 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=菲律宾外交研究.html">
-    <title>菲律宾对冲策略分析</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #E8F4F8 0%, #FFFFFF 100%);
-        }
-        .container {
-            text-align: center;
-            padding: 40px;
-        }
-        .loading {
-            font-size: 16px;
-            color: #666;
-            animation: fade 1.5s ease-in-out infinite;
-        }
-        @keyframes fade {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-        a {
-            color: #5BA4E6;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>菲律宾的对冲策略与一个国家的自我撕裂</title>
+<style>
+/* ===== CSS RESET & VARIABLES ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --font-display: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-body: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  --color-bg: #E8F4F8;
+  --color-bg-dark: #2D2D2D;
+  --color-blue: #5BA4E6;
+  --color-orange: #F5A623;
+  --color-green: #7ED321;
+  --color-pink: #FF6B9D;
+  --color-purple: #B388FF;
+  --color-yellow: #FFD93D;
+  --color-white: #FFFFFF;
+  --color-border: #E0E0E0;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-red: #E74C3C;
+  --color-success: #27AE60;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-glow-blue: 0 0 20px rgba(91, 164, 230, 0.3);
+  --shadow-glow-orange: 0 0 20px rgba(245, 166, 35, 0.3);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+  --duration-slower: 800ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION ===== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(45, 45, 45, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-xl);
+  z-index: 1000;
+  transform: translateY(-100%);
+  animation: navSlideIn 800ms var(--ease-out-expo) forwards;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+@keyframes navSlideIn {
+  to { transform: translateY(0); }
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-orange);
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.nav-links a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+  padding: 4px 0;
+  transition: transform 300ms var(--ease-out-expo);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--color-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms var(--ease-out-expo);
+}
+
+.nav-links a:hover {
+  transform: translateY(-2px);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 50%, #E8F4F8 0%, #D4E9F2 100%);
+  padding: var(--space-xl);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91, 164, 230, 0.06) 39px, rgba(91, 164, 230, 0.06) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91, 164, 230, 0.06) 39px, rgba(91, 164, 230, 0.06) 40px);
+  transform: perspective(500px) rotateX(60deg) scale(2);
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  0% { transform: perspective(500px) rotateX(60deg) scale(2) translateY(0); }
+  100% { transform: perspective(500px) rotateX(60deg) scale(2) translateY(40px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+}
+
+.hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: charReveal 600ms var(--ease-out-expo) forwards;
+}
+
+@keyframes charReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--color-text-secondary);
+  opacity: 0;
+  animation: fadeIn 800ms var(--ease-out-expo) 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: var(--space-2xl);
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.hero-scroll svg {
+  width: 32px; height: 32px;
+  color: var(--color-text-secondary);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ===== SECTION COMMON ===== */
+section {
+  padding: var(--space-4xl) var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-blue), var(--color-orange));
+  border-radius: var(--radius-full);
+}
+
+/* ===== PART 1: INTRO ===== */
+.section-intro {
+  background: var(--color-white);
+  max-width: 100%;
+  padding: var(--space-4xl) var(--space-xl);
+}
+
+.section-intro .section-title {
+  margin-bottom: var(--space-3xl);
+}
+
+.comparison-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  max-width: 1100px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition: all 300ms var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-left {
+  border-left: 4px solid var(--color-blue);
+}
+
+.card-right {
+  border-left: 4px solid var(--color-orange);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-left:hover {
+  border-left-width: 6px;
+}
+
+.card-right:hover {
+  border-left-width: 6px;
+}
+
+.date-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.card-left .date-badge {
+  background: rgba(91, 164, 230, 0.15);
+  color: var(--color-blue);
+}
+
+.card-right .date-badge {
+  background: rgba(245, 166, 35, 0.15);
+  color: var(--color-orange);
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+/* Sticker Reveal */
+.reveal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 200px;
+}
+
+.sticker {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-2deg);
+  background: var(--color-yellow);
+  border: 2px dashed #E0A800;
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  z-index: 10;
+  transition: all 600ms var(--ease-in-out-quart);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.sticker:hover {
+  transform: translate(-50%, -50%) rotate(-2deg) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.sticker.peeled {
+  transform: translate(-50%, -50%) rotate(-45deg) translateY(-100px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.revealed-content {
+  background: var(--color-bg-dark);
+  color: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 600ms var(--ease-out-expo);
+  display: none;
+}
+
+.revealed-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.revealed-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 400ms var(--ease-out-expo);
+}
+
+.revealed-content.show p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.revealed-content .highlight {
+  color: var(--color-yellow);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ===== PART 2: THEORY ===== */
+.section-theory {
+  background: linear-gradient(180deg, #F0F7FF 0%, #E8F4F8 100%);
+  max-width: 100%;
+}
+
+.theory-intro {
+  max-width: 800px;
+  margin: 0 auto var(--space-3xl);
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.keyword-highlight {
+  background: var(--color-yellow);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.concept-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.concept-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 400ms var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.concept-card:nth-child(1) {
+  border: 3px solid var(--color-orange);
+  background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%);
+}
+
+.concept-card:nth-child(2) {
+  border: 3px solid var(--color-blue);
+  background: linear-gradient(135deg, #E6F3FF 0%, #FFFFFF 100%);
+}
+
+.concept-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.concept-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-md);
+  transition: all 400ms var(--ease-out-expo);
+}
+
+.concept-keyword {
+  font-size: 28px;
+  font-weight: 700;
+  transition: all 400ms var(--ease-out-expo);
+  text-align: center;
+}
+
+.concept-card:nth-child(1) .concept-keyword {
+  color: var(--color-orange);
+}
+
+.concept-card:nth-child(2) .concept-keyword {
+  color: var(--color-blue);
+}
+
+.concept-definition {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: all 400ms var(--ease-out-expo);
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-top: 0;
+}
+
+.concept-card:hover .concept-keyword,
+.concept-card.active .concept-keyword {
+  font-size: 20px;
+  margin-bottom: var(--space-md);
+}
+
+.concept-card:hover .concept-definition,
+.concept-card.active .concept-definition {
+  opacity: 1;
+  max-height: 200px;
+  transform: translateY(0);
+  margin-top: var(--space-sm);
+}
+
+.concept-card:hover .concept-icon,
+.concept-card.active .concept-icon {
+  transform: scale(0.8);
+}
+
+.theory-outro {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* ===== PART 3: TIMELINE ===== */
+.section-timeline {
+  background: var(--color-white);
+  max-width: 100%;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto var(--space-3xl);
+  padding: var(--space-xl) 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--color-blue) 0%, var(--color-orange) 100%);
+  border-radius: var(--radius-full);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  transition: transform 800ms var(--ease-out-expo);
+}
+
+.timeline-line.animate {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-2xl);
+  display: flex;
+  align-items: flex-start;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.timeline-item.reward .timeline-card {
+  background: #F0F7FF;
+  border-left: 4px solid var(--color-blue);
+}
+
+.timeline-item.risk .timeline-card {
+  background: #FFF8E6;
+  border-left: 4px solid var(--color-orange);
+}
+
+.timeline-node {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 4px solid var(--color-white);
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+  transition: transform 400ms var(--ease-elastic);
+}
+
+.timeline-item.reward .timeline-node {
+  background: var(--color-blue);
+}
+
+.timeline-item.risk .timeline-node {
+  background: var(--color-orange);
+}
+
+.timeline-node.animate {
+  transform: translateX(-50%) scale(1);
+}
+
+.timeline-card {
+  width: calc(50% - 50px);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 300ms var(--ease-out-expo);
+  opacity: 0;
+}
+
+.timeline-item:nth-child(odd) .timeline-card {
+  transform: translateX(-30px);
+}
+
+.timeline-item:nth-child(even) .timeline-card {
+  transform: translateX(30px);
+}
+
+.timeline-card.animate {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+
+.timeline-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px) !important;
+}
+
+.timeline-date {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.timeline-item.reward .timeline-date {
+  color: var(--color-blue);
+}
+
+.timeline-item.risk .timeline-date {
+  color: var(--color-orange);
+}
+
+.timeline-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.timeline-summary {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.timeline-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 500ms var(--ease-in-out-quart);
+  margin-top: 0;
+}
+
+.timeline-card.expanded .timeline-detail {
+  max-height: 300px;
+  margin-top: var(--space-md);
+}
+
+.timeline-detail p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  padding-top: var(--space-sm);
+  border-top: 1px dashed var(--color-border);
+}
+
+.expand-icon {
+  display: block;
+  text-align: center;
+  margin-top: var(--space-sm);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  transition: transform 300ms;
+}
+
+.timeline-card.expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+.analysis-box {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--color-bg-dark);
+  color: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-orange);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ===== PART 4: DILEMMA ===== */
+.section-dilemma {
+  background: linear-gradient(180deg, #E8F4F8 0%, #F0F7FF 100%);
+  max-width: 100%;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+}
+
+.tab-btn {
+  padding: 12px 32px;
+  border: 2px solid var(--color-border);
+  background: transparent;
+  border-radius: var(--radius-full);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 300ms var(--ease-out-expo);
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+.tab-btn:hover {
+  border-color: var(--color-text-secondary);
+  transform: scale(1.05);
+}
+
+.tab-btn.active {
+  background: var(--color-bg-dark);
+  color: var(--color-white);
+  border-color: var(--color-bg-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 400ms var(--ease-out-expo);
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Island Cards */
+.island-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  max-width: 1000px;
+  margin: 0 auto var(--space-3xl);
+  position: relative;
+}
+
+.island-card {
+  background: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: all 400ms var(--ease-out-expo);
+  position: relative;
+}
+
+.island-card:nth-child(1) { transform: translateY(-20px); }
+.island-card:nth-child(2) { transform: translateY(20px); }
+.island-card:nth-child(3) { transform: translateY(-10px); }
+
+.island-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-lg);
+}
+
+.island-card:nth-child(1):hover { border-color: var(--color-blue); }
+.island-card:nth-child(2):hover { border-color: var(--color-orange); }
+.island-card:nth-child(3):hover { border-color: var(--color-green); }
+
+.island-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.island-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.island-card:nth-child(1) .island-icon { background: rgba(91, 164, 230, 0.15); }
+.island-card:nth-child(2) .island-icon { background: rgba(245, 166, 35, 0.15); }
+.island-card:nth-child(3) .island-icon { background: rgba(126, 211, 33, 0.15); }
+
+.island-brief {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.island-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 500ms var(--ease-in-out-quart);
+  margin-top: 0;
+}
+
+.island-card.expanded .island-detail {
+  max-height: 400px;
+  margin-top: var(--space-md);
+}
+
+.island-detail p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.island-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: var(--space-sm);
+}
+
+.island-card:nth-child(1) .island-tag { background: rgba(91, 164, 230, 0.15); color: var(--color-blue); }
+.island-card:nth-child(2) .island-tag { background: rgba(245, 166, 35, 0.15); color: var(--color-orange); }
+.island-card:nth-child(3) .island-tag { background: rgba(126, 211, 33, 0.15); color: var(--color-green); }
+
+.island-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px dashed var(--color-border);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 300ms;
+}
+
+.island-expand:hover {
+  color: var(--color-text);
+}
+
+/* Tear Animation */
+.tear-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+
+.tear-btn {
+  padding: 12px 32px;
+  background: var(--color-red);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: var(--space-xl);
+  transition: all 300ms var(--ease-out-expo);
+  font-family: inherit;
+}
+
+.tear-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(231, 76, 60, 0.3);
+}
+
+.crack-line {
+  width: 3px;
+  height: 100px;
+  background: var(--color-red);
+  margin: 0 auto var(--space-lg);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 600ms var(--ease-out-expo);
+  opacity: 0;
+}
+
+.crack-line.show {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.tear-summary {
+  background: var(--color-bg-dark);
+  color: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-red);
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 600ms var(--ease-elastic);
+  display: none;
+}
+
+.tear-summary.show {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0) scale(0.95); }
+  25% { transform: translate(-3px, 0) rotate(-1deg) scale(0.95); }
+  75% { transform: translate(3px, 0) rotate(1deg) scale(0.95); }
+}
+
+.island-card.shaking {
+  animation: shake 0.3s ease-in-out 3;
+}
+
+/* Regional View */
+.regional-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.regional-text {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: var(--space-xl);
+}
+
+.regional-sticker-container {
+  position: relative;
+  margin-bottom: var(--space-4xl);
+  padding-bottom: var(--space-xl);
+}
+
+.regional-reveal {
+  background: var(--color-bg-dark);
+  color: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-red);
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 600ms var(--ease-out-expo);
+  margin-bottom: var(--space-sm);
+}
+
+.regional-reveal.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.regional-summary {
+  max-width: 800px;
+  margin: var(--space-xs) auto 0;
+  background: transparent;
+  color: var(--color-text);
+  padding: 0;
+  border-radius: 0;
+  border-left: none;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ===== PART 5: CONCLUSION ===== */
+.section-conclusion {
+  background: var(--color-white);
+  max-width: 100%;
+}
+
+.flip-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+  height: 320px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 600ms var(--ease-in-out-quart);
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.flip-card:nth-child(1) .flip-card-front {
+  background: linear-gradient(135deg, #FFFEF5 0%, #FFFFFF 100%);
+  border: 3px solid var(--color-yellow);
+}
+
+.flip-card:nth-child(2) .flip-card-front {
+  background: linear-gradient(135deg, #FFF5F5 0%, #FFFFFF 100%);
+  border: 3px solid var(--color-red);
+}
+
+.flip-card-front .icon {
+  font-size: 48px;
+  margin-bottom: var(--space-md);
+}
+
+.flip-card-front h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.flip-card-front .hint {
+  font-size: 14px;
+  color: #999;
+}
+
+.flip-card-back {
+  background: var(--color-bg-dark);
+  color: var(--color-white);
+  transform: rotateY(180deg);
+  text-align: left;
+  align-items: flex-start;
+}
+
+.flip-card-back .tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  margin-bottom: var(--space-md);
+}
+
+.flip-card-back p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.conclusion-summary {
+  max-width: 900px;
+  margin: 0 auto var(--space-3xl);
+  background: #F0F7FF;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-blue);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.extension-box {
+  max-width: 900px;
+  margin: 0 auto var(--space-3xl);
+  background: #FFF8E6;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-yellow);
+  position: relative;
+}
+
+.extension-label {
+  position: absolute;
+  top: -12px;
+  left: var(--space-xl);
+  background: var(--color-yellow);
+  padding: 4px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.extension-box p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-top: var(--space-sm);
+}
+
+/* Vote Section */
+.vote-section {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--color-white);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.vote-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.vote-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.vote-option {
+  width: 100%;
+  padding: var(--space-lg);
+  background: #F5F7FA;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 300ms var(--ease-out-expo);
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+.vote-option:hover {
+  background: #E8F4F8;
+  border-color: var(--color-blue);
+  transform: translateX(4px);
+}
+
+.vote-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.vote-stats {
+  display: none;
+}
+
+.vote-stats.show {
+  display: block;
+}
+
+.stat-item {
+  margin-bottom: var(--space-md);
+}
+
+.stat-label {
+  font-size: 14px;
+  margin-bottom: var(--space-xs);
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-bar-bg {
+  width: 100%;
+  height: 32px;
+  background: #F5F7FA;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  width: 0;
+  transition: width 800ms var(--ease-out-expo);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  color: var(--color-white);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-bar.a { background: var(--color-blue); }
+.stat-bar.b { background: var(--color-orange); }
+.stat-bar.c { background: var(--color-green); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--color-bg-dark);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer p {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: var(--space-sm);
+}
+
+.footer small {
+  color: #666;
+  font-size: 12px;
+}
+
+/* ===== ANIMATE ON SCROLL ===== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 600ms var(--ease-out-expo), transform 600ms var(--ease-out-expo);
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-btn { display: block; }
+  .nav-brand { font-size: 18px; }
+
+  .hero-title { font-size: 28px; line-height: 1.4; }
+  .hero-subtitle { font-size: 14px; }
+  .hero-author { font-size: 12px; }
+
+  .comparison-cards,
+  .concept-cards,
+  .flip-cards,
+  .island-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .comparison-card,
+  .concept-card,
+  .flip-card {
+    padding: var(--space-md);
+  }
+
+  .comparison-card h3,
+  .concept-card h3 {
+    font-size: 16px;
+  }
+
+  .flip-card { height: 220px; }
+  .flip-card-inner { height: 100%; }
+  .flip-card-back { padding: var(--space-md); }
+
+  .timeline-line { left: 15px; }
+  .timeline-item,
+  .timeline-item:nth-child(odd) {
+    flex-direction: column;
+    padding-left: 40px;
+  }
+  .timeline-node { left: 15px !important; }
+  .timeline-card { width: 100%; }
+  .timeline-date { font-size: 12px; }
+  .timeline-event { font-size: 14px; }
+  .timeline-summary { font-size: 13px; }
+
+  .island-card:nth-child(1),
+  .island-card:nth-child(2),
+  .island-card:nth-child(3) {
+    transform: none;
+  }
+  .island-card {
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+  .island-name { font-size: 16px; }
+  .island-brief { font-size: 13px; }
+  .island-detail p { font-size: 12px; }
+
+  .regional-tabs {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .regional-tab {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 14px;
+  }
+
+  .regional-sticker {
+    font-size: 13px;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .regional-reveal {
+    padding: var(--space-md);
+    font-size: 14px;
+  }
+
+  .regional-summary {
+    font-size: 14px;
+    padding: 0 var(--space-md);
+  }
+
+  .conclusion-content {
+    padding: var(--space-md);
+  }
+  .conclusion-title { font-size: 20px; }
+  .conclusion-text { font-size: 14px; }
+
+  section { padding: var(--space-xl) var(--space-sm); }
+  
+  .section-title { font-size: 22px; }
+  .section-subtitle { font-size: 14px; }
+  
+  .concept-item { font-size: 13px; }
+  .concept-description { font-size: 12px; }
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 45, 45, 0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: var(--color-white);
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mobile-close {
+  position: absolute;
+  top: var(--space-xl);
+  right: var(--space-xl);
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 32px;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="loading">正在跳转到分析页面...</div>
-        <p style="margin-top: 20px; color: #999; font-size: 14px;">
-            如果没有自动跳转，请点击 <a href="菲律宾外交研究.html">这里</a>
-        </p>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="nav-logo">战略观察</div>
+  <div class="nav-links">
+    <a href="#part1">事件</a>
+    <a href="#part2">理论</a>
+    <a href="#part3">案例</a>
+    <a href="#part4">困境</a>
+    <a href="#part5">结论</a>
+  </div>
+  <button class="nav-mobile-btn" onclick="toggleMobileMenu()">☰</button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobileMenu()">×</button>
+  <a href="#part1" onclick="toggleMobileMenu()">事件</a>
+  <a href="#part2" onclick="toggleMobileMenu()">理论</a>
+  <a href="#part3" onclick="toggleMobileMenu()">案例</a>
+  <a href="#part4" onclick="toggleMobileMenu()">困境</a>
+  <a href="#part5" onclick="toggleMobileMenu()">结论</a>
+</div>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title" id="heroTitle"></h1>
+    <p class="hero-subtitle">2026年东盟轮值主席国的战略抉择</p>
+  </div>
+  <div class="hero-scroll" onclick="scrollToSection('part1')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </div>
+</header>
+
+<!-- Part 1: 介绍事件区 -->
+<section id="part1" class="section-intro">
+  <h2 class="section-title animate-on-scroll">矛盾的外交姿态</h2>
+
+  <div class="comparison-cards">
+    <div class="card card-left animate-on-scroll">
+      <span class="date-badge">2026年5月</span>
+      <p class="card-text">菲律宾总统马科斯在东京宣布将菲日关系提升为"全面战略伙伴关系"，并启动军事情报保护协定谈判。几乎同一时间，菲律宾国防部长在香格里拉对话论坛上高调渲染"外部威胁"，扬言"强化威慑能力、扩大安全伙伴网络"。</p>
     </div>
-</body>
-</html>
+    <div class="card card-right animate-on-scroll">
+      <span class="date-badge">2026年3月</span>
+      <p class="card-text">霍尔木兹海峡航运受阻，高度依赖石油进口的菲律宾进入能源紧急状态。危急关头，中国向菲方提供能源援助并保障化肥供应。马科斯总统公开感谢中国"没有趁人之危"，并表达了重启南海油气联合开发磋商的意愿。</p>
+    </div>
+  </div>
+
+  <div class="reveal-container animate-on-scroll">
+    <div class="sticker" onclick="revealSticker(this)">
+      <span>🔍 点击揭示深层分析 →</span>
+    </div>
+    <div class="revealed-content" id="revealedContent1">
+      <p>同一个国家，同一位领导人，一边求援，一边挑衅，是什么造成了菲律宾外交的矛盾姿态？</p>
+      <p>对于其所呈现的种种行为，在国际关系理论中，可以引入一个较为匹配的概念来分析这种外交策略，即<span class="highlight">"对冲"（hedging）</span>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Part 2: 理论讲解区 -->
+<section id="part2" class="section-theory">
+  <h2 class="section-title animate-on-scroll">中美间第三方的战略选择</h2>
+
+  <div class="theory-intro animate-on-scroll">
+    <p>在国际关系研究中，<span class="keyword-highlight">"对冲"</span>指的是中等国家或中小国家在大国竞争格局中，不直接选边站队，而是通过同时与竞争大国保持不同程度的合作与防范，来管理风险并最大化自身利益的行径。</p>
+  </div>
+
+  <div class="concept-cards">
+    <div class="concept-card animate-on-scroll" onclick="toggleConcept(this)">
+      <div class="concept-icon">💰</div>
+      <div class="concept-keyword">回报最大化</div>
+      <div class="concept-definition">
+        通过深度经济合作获取发展红利，利用大国竞争为本国争取资源与投资。
+      </div>
+    </div>
+    <div class="concept-card animate-on-scroll" onclick="toggleConcept(this)">
+      <div class="concept-icon">🛡️</div>
+      <div class="concept-keyword">风险管理</div>
+      <div class="concept-definition">
+        通过选择性安全合作、防务采购多元化和外交网络扩大，防范过度依赖任何一方带来的风险。
+      </div>
+    </div>
+  </div>
+
+  <div class="theory-outro animate-on-scroll">
+    <p>在特朗普第二任期"美国优先"政策的冲击下，全球范围内被保护主义激化的"联盟困境"——对华盛顿的安全依赖与对北京的经济暴露之间的矛盾——已迫使许多美国盟友走向差异化的对冲。从欧洲到印太，对冲正从一个区域性现象演变为全球性的战略选择。</p>
+  </div>
+</section>
+
+<!-- Part 3: 案例剖析区 -->
+<section id="part3" class="section-timeline">
+  <h2 class="section-title animate-on-scroll">案例剖析：2026年菲律宾外交轨迹</h2>
+
+  <p style="text-align:center; max-width:800px; margin:0 auto var(--space-2xl); font-size:16px; line-height:1.8;" class="animate-on-scroll">
+    如果我们将对冲作为分析框架来审视菲律宾2026年的外交轨迹，便能更清晰地观察到其核心逻辑。
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-line" id="timelineLine"></div>
+
+    <div class="timeline-item reward">
+      <div class="timeline-node" id="node1"></div>
+      <div class="timeline-card" id="card1" onclick="toggleTimelineCard(this)">
+        <div class="timeline-date">2026.03 利益回报侧</div>
+        <div class="timeline-title">霍尔木兹危机</div>
+        <div class="timeline-summary">菲律宾能源告急，中国援助到位 → 生存安全得到了保障</div>
+        <div class="timeline-detail">
+          <p>霍尔木兹海峡航运受阻导致全球能源供应链紧张，高度依赖石油进口的菲律宾迅速陷入能源紧急状态。中国及时向菲方提供能源援助并保障化肥供应，缓解了菲律宾的燃眉之急。</p>
+        </div>
+        <span class="expand-icon">▼</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reward">
+      <div class="timeline-node" id="node2"></div>
+      <div class="timeline-card" id="card2" onclick="toggleTimelineCard(this)">
+        <div class="timeline-date">2026.04 利益回报侧</div>
+        <div class="timeline-title">马科斯表态</div>
+        <div class="timeline-summary">感谢中国，愿重启油气谈判 → 维持了经济发展通道</div>
+        <div class="timeline-detail">
+          <p>马科斯总统公开感谢中国"没有趁人之危"，并表达了重启南海油气联合开发磋商的意愿。这一表态显示出菲律宾在经济利益驱动下寻求与中国合作的强烈动机。</p>
+        </div>
+        <span class="expand-icon">▼</span>
+      </div>
+    </div>
+
+    <div class="timeline-item risk">
+      <div class="timeline-node" id="node3"></div>
+      <div class="timeline-card" id="card3" onclick="toggleTimelineCard(this)">
+        <div class="timeline-date">2026.05 风险管理侧</div>
+        <div class="timeline-title">菲日峰会</div>
+        <div class="timeline-summary">战略伙伴升级+情报协定 → 加深对美日安全依赖，同时平衡中国的经济影响力</div>
+        <div class="timeline-detail">
+          <p>菲律宾总统马科斯在东京宣布将菲日关系提升为"全面战略伙伴关系"，并启动军事情报保护协定谈判。此举显著加深了菲律宾对美日安全框架的依赖。</p>
+        </div>
+        <span class="expand-icon">▼</span>
+      </div>
+    </div>
+
+    <div class="timeline-item risk">
+      <div class="timeline-node" id="node4"></div>
+      <div class="timeline-card" id="card4" onclick="toggleTimelineCard(this)">
+        <div class="timeline-date">2026.06 风险管理侧</div>
+        <div class="timeline-title">东盟轮值主席国</div>
+        <div class="timeline-summary">希望通过担任区域"协调者"的角色强化战略自主性</div>
+        <div class="timeline-detail">
+          <p>菲律宾担任东盟轮值主席国，希望利用这一平台在区域事务中发挥更大影响力，在大国竞争中争取更多的战略自主空间。</p>
+        </div>
+        <span class="expand-icon">▼</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-box animate-on-scroll">
+    <p>一个国家在同一时间、同一问题上采取表面矛盾的两套政策，因为这两套政策服务于不同的战略目标。菲律宾在安全领域向美日倾斜，在经济与发展领域则不得不靠近中国，马尼拉希望这两条轨道可以并行不悖，以确保菲律宾利益的最大化。</p>
+  </div>
+</section>
+
+<!-- Part 4: 困境分析区 -->
+<section id="part4" class="section-dilemma">
+  <h2 class="section-title animate-on-scroll">国内政治的结构性撕裂</h2>
+
+  <div class="tabs animate-on-scroll">
+    <button class="tab-btn active" onclick="switchTab('domestic', this)">国内视角</button>
+    <button class="tab-btn" onclick="switchTab('regional', this)">区域视角</button>
+  </div>
+
+  <!-- 国内视角 -->
+  <div class="tab-content active" data-tab="domestic">
+    <div class="island-layout">
+      <div class="island-card animate-on-scroll" onclick="toggleIsland(this)">
+        <div class="island-name">
+          <span class="island-icon">🏔️</span>
+          吕宋岛
+        </div>
+        <div class="island-brief">以大马尼拉都会区为核心，聚集了与美西方利益交融较深的商业家族与安全精英。</div>
+        <div class="island-detail">
+          <p>形成了以"安全威胁认知"为导向的亲美阶层。这些精英集团在安全议题上与美国保持高度一致，推动菲律宾向美日安全框架靠拢。</p>
+          <span class="island-tag">亲美导向</span>
+        </div>
+        <div class="island-expand">
+          <span>▼</span>
+          <span>展开</span>
+        </div>
+      </div>
+
+      <div class="island-card animate-on-scroll" onclick="toggleIsland(this)">
+        <div class="island-name">
+          <span class="island-icon">🌴</span>
+          棉兰老岛
+        </div>
+        <div class="island-brief">前总统杜特尔特及其家族在此深耕30余年，具备较强的战略自主意识。</div>
+        <div class="island-detail">
+          <p>具备较强的战略自主意识和"疑美"情绪，更倾向于将中国视为不可或缺的发展伙伴。杜特尔特时期的对华友好政策在此有深厚的社会基础。</p>
+          <span class="island-tag">战略自主</span>
+        </div>
+        <div class="island-expand">
+          <span>▼</span>
+          <span>展开</span>
+        </div>
+      </div>
+
+      <div class="island-card animate-on-scroll" onclick="toggleIsland(this)">
+        <div class="island-name">
+          <span class="island-icon">🏝️</span>
+          米沙鄢群岛
+        </div>
+        <div class="island-brief">汇聚了大量拥有深厚经济利益的商业资本，构成了主张务实平衡的"中间地带"。</div>
+        <div class="island-detail">
+          <p>构成了主张务实平衡的"中间地带"。这里的商业集团更注重实际经济利益，倾向于在大国之间保持平衡，避免过度偏向任何一方。</p>
+          <span class="island-tag">务实平衡</span>
+        </div>
+        <div class="island-expand">
+          <span>▼</span>
+          <span>展开</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tear-container">
+      <button class="tear-btn" onclick="triggerTear()">💥 揭示结构性撕裂</button>
+      <div class="crack-line" id="crackLine"></div>
+      <div class="tear-summary" id="tearSummary">
+        <p>国内政治派系斗争的外溢使得马科斯政府任何一边倒的政策都会在国内遭遇反制，外交成为内部政治撕裂的投影。</p>
+        <p>更是由于其对华采取的通过对抗制衡中国的经济影响的态度，导致其陷入危险的循环：越对抗越需要美国，越依赖美国就越对抗。而对冲的空间，正在这个循环中不断缩小。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 区域视角 -->
+  <div class="tab-content" data-tab="regional">
+    <div class="regional-content">
+      <div class="regional-text animate-on-scroll">
+        <p>区域态势的变化也在影响着作为东南亚国家的菲律宾的对外策略。在过去，东南亚各国通过在大国之间周旋获得了巨大的发展红利：中国提供市场和投资，美国提供政治与安全保障。但如今，整个东南亚曾经作为中美"安全缓冲区"的空间正在急速收缩。</p>
+      </div>
+
+      <div class="regional-sticker-container animate-on-scroll">
+        <div class="sticker" onclick="revealRegional(this)">
+          <span>🔍 撕开查看深层分析 →</span>
+        </div>
+        <div class="regional-reveal" id="regionalReveal">
+          <p>南海军事活动上升、美国及其盟友在亚太地区活跃度上升、技术供应链竞争，各种国际政治的现实矛盾让中等国家的战略回旋余地被前所未有地压缩。区域和国内政治的双重影响让菲律宾在对冲策略上的选择的余地持续受限，这也成为整个地区的一个缩影。</p>
+        </div>
+      </div>
+
+      <div class="regional-summary animate-on-scroll">
+        <p>作为2026年东盟轮值主席国，菲律宾本应成为区域团结的维护者。但当它过度向美日安全框架靠拢，菲律宾的对华外交和谈判的空间就自然而然越来越小，不可避免地意味着牺牲经济发展机会，东盟内部的裂痕也在逐渐被加深。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Part 5: 结论区 -->
+<section id="part5" class="section-conclusion">
+  <h2 class="section-title animate-on-scroll">结论：对冲策略的双面性</h2>
+
+  <div class="flip-cards">
+    <div class="flip-card animate-on-scroll" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <span class="icon">💡</span>
+          <h3>价值</h3>
+          <p class="hint">点击翻转查看 →</p>
+        </div>
+        <div class="flip-card-back">
+          <span class="tag">观点</span>
+          <p>对冲的策略让中小国家在大国夹缝中保留多重选择，争取最大利益。从来不存在一种"完美策略"。对冲策略有成本，有风险，有时甚至看起来自我矛盾。但正是这种矛盾，构成了中小国家在大国竞争夹缝中较为合乎理性的生存方式，最理想的情况就是通过控制靠近不同国家带来的风险的同时为本国攫取最大利益。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card animate-on-scroll" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <span class="icon">⚠️</span>
+          <h3>风险</h3>
+          <p class="hint">点击翻转查看 →</p>
+        </div>
+        <div class="flip-card-back">
+          <span class="tag">分析</span>
+          <p>对冲的成功与否越来越取决于执行者的政治智慧与国内共识。然而，随着国际局势的进一步复杂化，这种策略的有效性正在被蚕食。当两个大国的结构性竞争不断加剧，不明智的对冲行径就容易滑向单向倾斜，中小国家可能沦为附庸，失去战略自主与发展机遇。问题的关键在于国内共识与技术性执行，避免被短期政治冲突绑架长期战略。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion-summary animate-on-scroll">
+    <p>对菲律宾来说，接下来的选择将决定它的未来走向，是继续在选边的道路上越走越远，还是有足够的智慧和空间回头？对整个东盟乃至全球的面临相似境遇的国家而言，这个问题选择同样具有深远的国际政治意义。</p>
+  </div>
+
+  <div class="extension-box animate-on-scroll">
+    <span class="extension-label">延伸思考</span>
+    <p>从中国的视角来看，面对周边国家的对冲行为，一个更有效的策略不是迫使其"选边站队"，而是通过提供足够的经济公共产品和制度性合作平台，让"与中国合作"成为对冲策略中最具吸引力、风险最低的选项之一。当这种吸引力足够强大时，对冲本身就会趋向于良性平衡，而非滑向对抗。</p>
+  </div>
+
+  <div class="vote-section animate-on-scroll">
+    <div class="vote-title">🤔 你认为菲律宾未来的外交战略将如何变化？</div>
+    <div class="vote-options" id="voteOptions">
+      <button class="vote-option" onclick="vote('a')">
+        [a] 继续维持对冲平衡，但有效性未知
+      </button>
+      <button class="vote-option" onclick="vote('b')">
+        [b] 明显倒向美日安全阵营
+      </button>
+      <button class="vote-option" onclick="vote('c')">
+        [c] 因经济利益回调至亲华路线
+      </button>
+    </div>
+    <div class="vote-stats" id="voteStats">
+      <p style="text-align:center; font-size:14px; color:#999; margin-bottom:16px;">模拟投票结果（仅供参与感）</p>
+      <div class="stat-item">
+        <div class="stat-label">
+          <span>[a] 维持对冲平衡</span>
+          <span class="stat-number-a">1250人 (100%)</span>
+        </div>
+        <div class="stat-bar-bg">
+          <div class="stat-bar a" data-width="100">1250人</div>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">
+          <span>[b] 倒向美日阵营</span>
+          <span class="stat-number-b">938人 (75%)</span>
+        </div>
+        <div class="stat-bar-bg">
+          <div class="stat-bar b" data-width="75">938人</div>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">
+          <span>[c] 回调亲华路线</span>
+          <span class="stat-number-c">750人 (60%)</span>
+        </div>
+        <div class="stat-bar-bg">
+          <div class="stat-bar c" data-width="60">750人</div>
+        </div>
+      </div>
